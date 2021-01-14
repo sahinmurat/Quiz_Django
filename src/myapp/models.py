@@ -20,4 +20,8 @@ class Quiz(models.Model):
     
     class Meta :
         verbose_name_plural = 'Quizzes'
+        
+class Question(models.model):
+    quiz = models.ForeignKey(Quiz, on_delete=models.CASCADE)
+    title = models.CharField(max_length=300, verbose_name='question')
     
