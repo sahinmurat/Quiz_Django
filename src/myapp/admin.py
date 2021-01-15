@@ -4,11 +4,15 @@ from .models import Category, Question,Quiz,Answer
 
 class AnswerInline(nested_admin.NestedTabularInline):
     model = Answer
+    extra = 5
+    max_num = 8
     
     
 class QuestinInline(nested_admin.NestedTabularInline):
     model = Question
     inlines = [AnswerInline]    
+    extra = 1
+    max_num = 10
 
 class QuizAdmin(nested_admin.NestedModelAdmin):
     model = Quiz
